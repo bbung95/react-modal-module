@@ -1,7 +1,8 @@
 {
     "name": "react-common-modal-module",
-    "version": "0.0.9",
+    "version": "0.1.0",
     "private": false,
+    "license": "MIT",
     "author": {
         "name": "bbung95",
         "email": "tjd123123@naver.com",
