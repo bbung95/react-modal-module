@@ -1,4 +1,11 @@
+#npm
 node_modules/
-src/
+
+#dev
 public/
+src/
+.gitignore
 tsconfig.json
+
+#git
+.git

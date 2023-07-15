@@ -1,6 +1,6 @@
 {
     "name": "react-common-modal-module",
-    "version": "0.0.4",
+    "version": "0.0.9",
     "private": false,
     "author": {
         "name": "bbung95",
@@ -19,8 +19,9 @@
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "type": "module",
-    "browser": "./browser/specific/main.js",
+    "files": [
+        "dist"
+    ],
     "dependencies": {
         "@types/node": "^16.18.38",
         "@types/react": "^18.2.15",
