@@ -1,9 +1,7 @@
-import { useModal } from "./lib";
+import React from "react";
 
 const App = () => {
-    const { value } = useModal();
-
-    return <div>{value}</div>;
+    return <div>react-common-modal-module</div>;
 };
 
 export default App;
