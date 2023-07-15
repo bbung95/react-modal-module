@@ -1,15 +1,41 @@
-import { createContext, useContext } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
+import ModalContainer from "./ModalContainer";
 
 interface ModalContextProps {
-    value: string;
+    content: React.ReactNode;
+    isOpen: boolean;
+    openModal: (arg1: React.ReactNode) => void;
+    closeModal: () => void;
 }
 
 const ModalContext = createContext<ModalContextProps | null>(null);
 
 export const ModalContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const modalValue = { value: "안녕하세요" };
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [content, setContent] = useState<React.ReactNode | null>(null);
 
-    return <ModalContext.Provider value={modalValue}>{children}</ModalContext.Provider>;
+    const openModal = useCallback((component: React.ReactNode) => {
+        setContent(component);
+        setIsOpen(true);
+    }, []);
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+
+    const modalValue = {
+        content,
+        isOpen,
+        openModal,
+        closeModal,
+    };
+
+    return (
+        <ModalContext.Provider value={modalValue}>
+            {children}
+            <ModalContainer />
+        </ModalContext.Provider>
+    );
 };
 
 export const useModal = () => {
